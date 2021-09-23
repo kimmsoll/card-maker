@@ -1,8 +1,12 @@
+@value makerGreen from '../../common/colors.css';
+@value makerWhite from '../../common/colors.css';
+
 .footer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: pink;
-  color: white;
+  background-color: makerGreen;
+  color: makerWhite;
 }

@@ -1,6 +1,37 @@
+@value makerBlack from '../../common/colors.css';
+@value makerWhite from '../../common/colors.css';
+@value makerGreen from '../../common/colors.css';
+
 .login {
+  width: 100%;
+  background-color: makerWhite;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: makerBlack;
+}
+
+.google,
+.github {
+  font-size: 1.5rem;
+  color: makerGreen;
+  background-color: makerWhite;
+  width: 50%;
+  padding: 0.5rem;
+  border: 0.2rem solid makerGreen;
+  border-radius: 1rem;
+}
+
+.github {
+  margin: 1rem 0 2rem 0;
+}
+
+.google:hover,
+.github:hover {
+  cursor: pointer;
 }

@@ -1,11 +1,11 @@
 import { HashRouter, Route } from 'react-router-dom';
 import LoginPage from './routes/login-page';
 
-function App() {
+function App({authService}) {
   return (
     <HashRouter>
       <Route path="/login">
-        <LoginPage></LoginPage>
+        <LoginPage authService={authService}></LoginPage>
       </Route>
     </HashRouter>
   );
