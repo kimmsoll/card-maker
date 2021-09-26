@@ -1,5 +1,6 @@
 @value makerGreen from '../../common/colors.css';
 @value makerWhite from '../../common/colors.css';
+@value makerBlack from '../../common/colors.css';
 
 .header {
   width: 100%;
@@ -11,4 +12,20 @@
   justify-content: center;
   background-color: makerGreen;
   color: makerWhite;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.logout {
+  font-size: 1rem;
+  color: makerWhite;
+  background-color: makerBlack;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  border: none;
+  position: absolute;
+  left: 80vw;
+  top: 2.5rem;
 }

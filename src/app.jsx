@@ -1,13 +1,23 @@
-import { HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './routes/login-page';
+import Home from './routes/home';
 
 function App({authService}) {
   return (
-    <HashRouter>
-      <Route path="/login">
-        <LoginPage authService={authService}></LoginPage>
+    <BrowserRouter>
+    <Switch>
+      <Route exact path="/">
+        <LoginPage
+        authService={authService}
+        ></LoginPage>
       </Route>
-    </HashRouter>
+      <Route path="/maker">
+        <Home
+        authService={authService}
+        ></Home>
+      </Route>
+    </Switch>
+    </BrowserRouter>
   );
 }
 

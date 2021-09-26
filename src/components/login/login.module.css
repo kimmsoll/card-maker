@@ -4,6 +4,8 @@
 
 .login {
   width: 100%;
+  height: 35vh;
+  min-height: 15rem;
   background-color: makerWhite;
   display: flex;
   flex-direction: column;
@@ -12,26 +14,27 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: makerBlack;
 }
 
 .google,
 .github {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: makerGreen;
   background-color: makerWhite;
   width: 50%;
-  padding: 0.5rem;
+  padding: 0.8rem;
   border: 0.2rem solid makerGreen;
   border-radius: 1rem;
 }
 
 .github {
-  margin: 1rem 0 2rem 0;
+  margin: 0.8rem 0 2rem 0;
 }
 
 .google:hover,
-.github:hover {
+.github:hover,
+.logout:hover {
   cursor: pointer;
 }
