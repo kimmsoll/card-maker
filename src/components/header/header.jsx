@@ -19,7 +19,7 @@ const Header = ({authService}) => {
 
     return(
     <header className={styles.header}>
-        <img src="../images/logo.png" alt="header-img" />
+        <img className={styles.img} src="../images/logo.png" alt="header-img" />
         <h1 className={styles.title}>Business Card Maker</h1>
         {history.location.pathname === "/maker" &&
         <button className={styles.logout} onClick={onLogout}>Logout</button>

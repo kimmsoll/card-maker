@@ -6,12 +6,14 @@ import styles from './login-page.module.css';
 
 const LoginPage = ({authService}) => {
     return (
-        <div className={styles.loginPage}>
+        <div className={styles.body}>
+        <div className={styles.main}>
             <Header
             authService={authService}></Header>
             <Login
             authService={authService}></Login>
             <Footer></Footer>
+        </div>
         </div>
     );
 }

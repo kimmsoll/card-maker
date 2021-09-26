@@ -1,0 +1,22 @@
+@value makerGreen from '../../common/colors.css';
+@value mediaQuery from '../../common/size.css';
+@value makerShadow: rgba(217, 217, 217, 1);
+
+.preview {
+  flex-basis: 50%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid makerShadow;
+}
+
+.title {
+  color: makerGreen;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .preview {
+    border-left: none;
+    border-top: 1px solid makerShadow;
+  }
+}
