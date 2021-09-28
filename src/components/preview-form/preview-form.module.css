@@ -1,0 +1,73 @@
+@value mediaQuery from '../../common/size.css';
+
+.card {
+  width: 100%;
+  min-width: 450px;
+  max-width: 550px;
+  height: 15em;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  background-color: beige;
+  border-radius: 1rem;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 25% 50%;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.avatar > img {
+  width: 10em;
+  height: 10em;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.company {
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}
+
+.dark {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(67, 67, 67, 1) 100%
+  );
+  color: whitesmoke;
+}
+
+.light {
+  background: linear-gradient(
+    90deg,
+    rgba(201, 214, 255, 1) 0%,
+    rgba(226, 226, 226, 1) 100%
+  );
+}
+
+.colorful {
+  background: linear-gradient(
+    90deg,
+    hsl(191, 86%, 49%) 0%,
+    hsl(280, 78%, 69%) 50%,
+    hsl(356, 90%, 64%) 100%
+  );
+}
+
+@media screen and (max-width: mediaQuery) {
+  .card {
+    grid-template-columns: 30% 50%;
+  }
+  .avatar > img {
+    width: 9em;
+    height: 9em;
+  }
+}
