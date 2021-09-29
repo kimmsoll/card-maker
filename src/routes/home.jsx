@@ -6,46 +6,39 @@ import Preview from '../components/preview/preview';
 import styles from './home.module.css';
 
 const Home = ({authService}) => {
-    const [cards, setCards] = useState([
-        {
-            id: 1,
-            name: "leeno",
-            company: "jyp",
-            title: "main dancer",
-            email: "leeknow@skz.com",
-            color: "dark",
-            message: "leeknow is cute",
-            fileName: "leeknow",
-            fileURL: "lee.png"
+    let [cards, setCards] = useState([
+        {   name: "leeno",
+            company : "jyp",
+            color : "colorful",
+            title : "main dancer",
+            email : "leeno@skz.com",
+            message : "leeknow is cute",
+            fileName : "leeknow",
+            fileURL : ' ',
+            id : 1
         },
-        {
-            id: 2,
-            name: "leeno",
-            company: "jyp",
-            title: "main dancer",
-            email: "leeknow@skz.com",
-            color: "light",
-            message: "leeknow is cute",
-            fileName: "leeknow",
-            fileURL: null
-        },
-        {
-            id: 3,
-            name: "leeno",
-            company: "jyp",
-            title: "main dancer",
-            email: "leeknow@skz.com",
-            color: "colorful",
-            message: "leeknow is cute",
-            fileName: "leeknow",
-            fileURL: null
+        {   name: "hyun",
+            company : "jyp",
+            color : "light",
+            title : "hwangjual",
+            email : "hyunjin@skz.com",
+            message : "lovestay",
+            fileName : "hyun",
+            fileURL : ' ',
+            id : 2
         },
     ]);
+
+    const onAdd = (card) => {
+        const newCards = [...cards, card];
+        setCards(newCards);
+    };
+
     return(
         <div className={styles.home}>
             <Header authService={authService}/>
             <div className={styles.main}>
-                <Maker cards={cards}/>
+                <Maker cards={cards} onAdd={onAdd}/>
                 <Preview cards={cards}/>
             </div>
             <div className={styles.footer}>

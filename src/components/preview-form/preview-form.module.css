@@ -7,7 +7,6 @@
   height: 15em;
   margin-bottom: 1.5rem;
   box-sizing: border-box;
-  background-color: beige;
   border-radius: 1rem;
   display: grid;
   justify-content: space-around;
@@ -33,10 +32,17 @@
 .company {
   padding-bottom: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.company.dark {
+  border-bottom: 1px solid whitesmoke;
+}
+.company.light,
+.company.colorful {
   border-bottom: 1px solid black;
 }
 
-.dark {
+.card.dark {
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 1) 0%,
@@ -45,7 +51,7 @@
   color: whitesmoke;
 }
 
-.light {
+.card.light {
   background: linear-gradient(
     90deg,
     rgba(201, 214, 255, 1) 0%,
@@ -53,7 +59,7 @@
   );
 }
 
-.colorful {
+.card.colorful {
   background: linear-gradient(
     90deg,
     hsl(191, 86%, 49%) 0%,

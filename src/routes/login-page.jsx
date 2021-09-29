@@ -9,10 +9,10 @@ const LoginPage = ({authService}) => {
         <div className={styles.body}>
         <div className={styles.main}>
             <Header
-            authService={authService}></Header>
+            authService={authService}/>
             <Login
-            authService={authService}></Login>
-            <Footer></Footer>
+            authService={authService}/>
+            <Footer/>
         </div>
         </div>
     );

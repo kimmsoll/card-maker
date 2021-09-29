@@ -1,3 +1,9 @@
+@value makerGreen from '../../common/colors.css';
+@value makerWhite from '../../common/colors.css';
+
 .button {
   width: 100%;
+  color: makerWhite;
+  background-color: makerGreen;
+  border: none;
 }

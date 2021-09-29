@@ -12,7 +12,7 @@ const PreviewForm = ({card}) => {
         </div>
         <div className={styles.text}>
             <h1>{name}</h1>
-            <span className={styles.company}>{company}</span>
+            <span className={`${styles.company} ${getColor(color)}`}>{company}</span>
             <span>{title}</span>
             <span>{email}</span>
             <span>{message}</span>

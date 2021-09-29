@@ -7,7 +7,7 @@ const Preview = ({cards}) => {
         <section className={styles.preview}>
             <h1 className={styles.title}>Card Preview</h1>
             <div className={styles.previews}>
-                {cards.map((card)=><PreviewForm card={card}/>)}
+                {cards.map((card)=><PreviewForm key={card.id} card={card}/>)}
             </div>
         </section>
     );
