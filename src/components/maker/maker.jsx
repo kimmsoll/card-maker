@@ -3,12 +3,13 @@ import styles from './maker.module.css';
 import MakerForm from '../maker-form/maker-form';
 import MakerInitForm from '../maker-init-form/maker-init-form';
 
-const Maker = ({cards, onAdd}) => {
+const Maker = ({cards, onAdd, onUpdate, onDelete}) => {
     return(
         <section className={styles.maker}>
             <h1 className={styles.title}>Card Maker</h1>
             <div className={styles.makers}>
-                {cards.map((card) => <MakerForm key={card.id} card={card}/>)}
+                {Object.keys(cards).map((key) => 
+                    <MakerForm key={key} card={cards[key]} onUpdate={onUpdate} onDelete={onDelete}/>)}
                 <MakerInitForm onAdd={onAdd}/>
             </div>
         </section>
