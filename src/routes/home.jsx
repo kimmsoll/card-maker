@@ -15,7 +15,7 @@ const Home = ({authService, FileInput}) => {
         email : "leeno@skz.com",
         message : "leeknow is cute",
         fileName : "leeknow",
-        fileURL : " ",
+        fileURL : "http://res.cloudinary.com/gorae/image/upload/v1633081997/oudjcvyqemokhjvrhgjx.jpg",
         id : "1"
     },
     "2" : {   
@@ -26,7 +26,7 @@ const Home = ({authService, FileInput}) => {
         email : "hyunjin@skz.com",
         message : "lovestay",
         fileName : "hyun",
-        fileURL : " ",
+        fileURL : "http://res.cloudinary.com/gorae/image/upload/v1633081726/qig7y4rpubrb0zdjkidb.jpg",
         id : "2"
     }
     }   
