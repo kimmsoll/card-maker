@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './maker-init-form.module.css';
 import Button from '../button/button';
-import Avatar from '../avatar/avatar';
 
-const MakerInitForm = ({onAdd}) => {
+const MakerInitForm = ({onAdd, FileInput}) => {
     const nameRef = useRef();
     const companyRef = useRef();
     const colorRef = useRef();
@@ -11,6 +10,14 @@ const MakerInitForm = ({onAdd}) => {
     const emailRef = useRef();
     const messageRef = useRef();
     const formRef = useRef();
+    const [file, setFile] = useState({fileName: null, fileURL: null});
+
+    const onFileChange = (file) => {
+        setFile({
+            fileName: file.name,
+            fileURL: file.url,
+        });
+    };
 
     const handleAdd = (event) => {
         event.preventDefault();
@@ -21,12 +28,13 @@ const MakerInitForm = ({onAdd}) => {
             title : titleRef.current.value || '',
             email : emailRef.current.value || '',
             message : messageRef.current.value || '',
-            fileName : ' ',
-            fileURL : ' ',
+            fileName : file.fileName || '',
+            fileURL : file.fileURL || '',
             id : new Date()
         };
-        onAdd(card);
         formRef.current.reset();
+        setFile({ fileName: null, fileURL: null });
+        onAdd(card);
     };
 
     return (
@@ -43,7 +51,7 @@ const MakerInitForm = ({onAdd}) => {
         <textarea ref={messageRef} className={styles.textarea} name="message" rows="2" defaultValue="write message"></textarea>
         <div className={styles.buttons}>
             <div className={styles.fileInput}>
-                <Avatar/>
+                <FileInput name={file.fileName} onFileChange={onFileChange}/>
             </div>
             <Button name="Add" onClick={handleAdd}></Button>
         </div>

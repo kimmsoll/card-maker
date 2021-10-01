@@ -16,11 +16,11 @@
 .avatar {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .avatar > img {
-  width: 10em;
-  height: 10em;
+  border-radius: 50%;
 }
 
 .text {

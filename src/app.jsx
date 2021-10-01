@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './routes/login-page';
 import Home from './routes/home';
 
-function App({authService}) {
+function App({authService, FileInput}) {
   return (
     <BrowserRouter>
     <Switch>
@@ -14,6 +14,7 @@ function App({authService}) {
       <Route path="/maker">
         <Home
         authService={authService}
+        FileInput={FileInput}
         ></Home>
       </Route>
     </Switch>

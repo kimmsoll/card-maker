@@ -5,7 +5,7 @@ import Maker from '../components/maker/maker';
 import Preview from '../components/preview/preview';
 import styles from './home.module.css';
 
-const Home = ({authService}) => {
+const Home = ({authService, FileInput}) => {
     let [cards, setCards] = useState({
     "1" : {   
         name: "leeno",
@@ -51,6 +51,7 @@ const Home = ({authService}) => {
             <Header authService={authService}/>
             <div className={styles.main}>
                 <Maker cards={cards}
+                FileInput={FileInput}
                 onAdd={onAddandUpdate}
                 onUpdate={onAddandUpdate}
                 onDelete={onDelete}/>

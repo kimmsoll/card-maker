@@ -6,4 +6,9 @@
   color: makerWhite;
   background-color: makerGreen;
   border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
 }
