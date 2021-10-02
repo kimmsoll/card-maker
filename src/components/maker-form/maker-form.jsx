@@ -5,8 +5,7 @@ import Button from '../button/button';
 const MakerForm = ({card, FileInput, onUpdate, onDelete}) => {
     const { name, company, title, email, message, color, fileName } = card;
 
-    const handleDelete = (event) => {
-        event.preventDefault();
+    const handleDelete = () => {
         onDelete(card);
     };
 

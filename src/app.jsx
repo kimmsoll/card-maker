@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './routes/login-page';
 import Home from './routes/home';
 
-function App({authService, FileInput}) {
+function App({authService, FileInput, cardRepository}) {
   return (
     <BrowserRouter>
     <Switch>
@@ -15,6 +15,7 @@ function App({authService, FileInput}) {
         <Home
         authService={authService}
         FileInput={FileInput}
+        cardRepository={cardRepository}
         ></Home>
       </Route>
     </Switch>

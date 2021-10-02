@@ -1,54 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Footer from '../components/footer/footer';
 import Header from '../components/header/header';
 import Maker from '../components/maker/maker';
 import Preview from '../components/preview/preview';
 import styles from './home.module.css';
 
-const Home = ({authService, FileInput}) => {
-    let [cards, setCards] = useState({
-    "1" : {   
-        name: "leeno",
-        company : "jyp",
-        color : "colorful",
-        title : "main dancer",
-        email : "leeno@skz.com",
-        message : "leeknow is cute",
-        fileName : "leeknow",
-        fileURL : "http://res.cloudinary.com/gorae/image/upload/v1633081997/oudjcvyqemokhjvrhgjx.jpg",
-        id : "1"
-    },
-    "2" : {   
-        name: "hyun",
-        company : "jyp",
-        color : "light",
-        title : "hwangjual",
-        email : "hyunjin@skz.com",
-        message : "lovestay",
-        fileName : "hyun",
-        fileURL : "http://res.cloudinary.com/gorae/image/upload/v1633081726/qig7y4rpubrb0zdjkidb.jpg",
-        id : "2"
-    }
-    }   
-    );
+const Home = ({authService, FileInput, cardRepository}) => {
+    const history = useHistory();
+    const historyState = history?.location?.state;
+    const [cards, setCards] = useState({});
+    const [userId, setUserId] = useState(historyState && historyState.id);
 
+    const onLogout = () => {
+        authService.logout();
+    };
+    
+    useEffect(()=>{
+        if(!userId){
+            return;
+        }
+        const stopSync = cardRepository.syncCards(userId, cards => {
+            setCards(cards);
+        });
+        return () => stopSync();
+    }, [userId, cardRepository])
+
+    useEffect(()=>{
+        authService.onAuthChange(user => {
+            // 계정이 없는 사용자가 /maker 화면으로 가는 것을 막는다
+            if(user){
+                setUserId(user.uid);
+            } else {
+                history.push("/");
+            }
+    })
+    },[authService, userId, history]);
+    
     const onAddandUpdate = (card) => {
         setCards(cards => {
             let newCards = {...cards};
             newCards[card.id] = card;
             return newCards;
         });
+        cardRepository.saveCard(userId, card);
     };
+
     const onDelete = (card) => {
         setCards(cards => {
             let newCards = {...cards};
             delete newCards[card.id];
             return newCards;
-        })
+        });
+        cardRepository.removeCard(userId, card);
     }
+
     return(
         <div className={styles.home}>
-            <Header authService={authService}/>
+            <Header onLogout={onLogout}/>
             <div className={styles.main}>
                 <Maker cards={cards}
                 FileInput={FileInput}
