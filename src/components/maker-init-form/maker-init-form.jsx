@@ -30,7 +30,7 @@ const MakerInitForm = ({onAdd, FileInput}) => {
             message : messageRef.current.value || '',
             fileName : file.fileName || '',
             fileURL : file.fileURL || '',
-            id : new Date()
+            id : Date.now()
         };
         formRef.current.reset();
         setFile({ fileName: null, fileURL: null });
